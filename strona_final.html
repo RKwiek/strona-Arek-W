@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolidBud - Profesjonalne Usługi Remontowo-Budowlane</title>
+    
+    <!-- Tailwind CSS (Framework CSS ładowany z CDN - nie trzeba go przenosić) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome do ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Konfiguracja Tailwind (musi zostać w HTML lub w pliku konfiguracyjnym JS) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', // Niebieski budowlany
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            accent: '#f59e0b', // Żółty ostrzegawczy
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-slate-800">
+
+    <!-- Nawigacja -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-md transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fa-solid fa-helmet-safety text-brand-600 text-3xl"></i>
+                    <span class="font-bold text-2xl tracking-tight text-slate-900">Ptysiek<span class="text-brand-600">Bud</span></span>
+                </div>
+
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#onas" class="text-slate-600 hover:text-brand-600 font-medium transition duration-300">O firmie</a>
+                    <a href="#uslugi" class="text-slate-600 hover:text-brand-600 font-medium transition duration-300">Usługi</a>
+                    <a href="#realizacje" class="text-slate-600 hover:text-brand-600 font-medium transition duration-300">Realizacje</a>
+                    <a href="#kontakt" class="bg-brand-600 text-white px-5 py-2.5 rounded-md font-medium hover:bg-brand-700 transition duration-300 shadow-lg shadow-brand-500/30">
+                        Kontakt
+                    </a>
+                </div>
+
+                <!-- Przycisk Menu Mobilnego -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobilne (Ukryte) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#onas" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-gray-50">O firmie</a>
+                <a href="#uslugi" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-gray-50">Usługi</a>
+                <a href="#realizacje" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-gray-50">Realizacje</a>
+                <a href="#kontakt" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-medium bg-brand-600 text-white hover:bg-brand-700">Skontaktuj się</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sekcja Hero -->
+    <header class="relative h-screen min-h-[600px] flex items-center justify-center bg-fixed bg-cover bg-center" style="background-image: url('mainphoto1.png');">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-accent/20 text-brand-accent border border-brand-accent/40 font-semibold mb-6 fade-in-up" style="animation-delay: 0.1s;">
+                <i class="fa-solid fa-check mr-2"></i> Profesjonalne wykończenia
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight fade-in-up" style="animation-delay: 0.3s;">
+                Budujemy Twoją przestrzeń <br>z <span class="text-brand-500">pasją i precyzją</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto fade-in-up" style="animation-delay: 0.5s;">
+                Kompleksowe usługi remontowo-budowlane. Od projektu aż po ostatnie pociągnięcie pędzla. Zaufaj profesjonalistom.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style="animation-delay: 0.7s;">
+                <a href="#kontakt" class="px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-semibold text-lg transition duration-300 shadow-lg shadow-brand-500/40">
+                    Darmowa Wycena
+                </a>
+                <a href="#realizacje" class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 rounded-lg font-semibold text-lg transition duration-300">
+                    Zobacz Realizacje
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sekcja O Nas -->
+    <section id="onas" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-brand-accent/10 rounded-full opacity-50 z-0"></div>
+                    <div class="absolute bottom-8 right-8 bg-white p-4 rounded-lg shadow-xl z-20 hidden md:block">
+                        <p class="text-brand-600 font-bold text-3xl">15+</p>
+                        <p class="text-slate-600 text-sm">Lat doświadczenia</p>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-brand-600 font-semibold tracking-wide uppercase mb-2">O firmie SolidBud</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Jakość, terminowość i uczciwość to nasze fundamenty.</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Jesteśmy firmą budowlaną specjalizującą się w kompleksowych wykończeniach wnętrz mieszkań, domów oraz biur. Nasz zespół składa się z doświadczonych fachowców, dla których budownictwo to nie tylko praca, ale przede wszystkim pasja.
+                    </p>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        Stawiamy na nowoczesne technologie i sprawdzone materiały. Każde zlecenie traktujemy indywidualnie, doradzając naszym klientom najlepsze rozwiązania techniczne i estetyczne.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-brand-600 mt-1 mr-3"></i>
+                            <span class="text-slate-700">Gwarancja na wykonane usługi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-brand-600 mt-1 mr-3"></i>
+                            <span class="text-slate-700">Terminowa realizacja zleceń</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-brand-600 mt-1 mr-3"></i>
+                            <span class="text-slate-700">Przejrzysty kosztorys bez ukrytych opłat</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja Usługi -->
+    <section id="uslugi" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase mb-2">Nasza Oferta</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Co możemy dla Ciebie zrobić?</h3>
+                <p class="mt-4 text-slate-600 max-w-2xl mx-auto">Oferujemy pełen zakres prac wykończeniowych. Od stanu deweloperskiego po klucz.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Usługa 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-transparent hover:border-brand-600 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-600 transition duration-300">
+                        <i class="fa-solid fa-paint-roller text-2xl text-brand-600 group-hover:text-white transition duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Malowanie i Tapetowanie</h4>
+                    <p class="text-slate-600">Precyzyjne malowanie ścian i sufitów, kładzenie gładzi oraz profesjonalne tapetowanie.</p>
+                </div>
+
+                <!-- Usługa 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-transparent hover:border-brand-600 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-600 transition duration-300">
+                        <i class="fa-solid fa-border-all text-2xl text-brand-600 group-hover:text-white transition duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Układanie Płytek</h4>
+                    <p class="text-slate-600">Kompleksowe prace glazurnicze w łazienkach, kuchniach i na tarasach. Glazura, terakota, gres.</p>
+                </div>
+
+                <!-- Usługa 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-transparent hover:border-brand-600 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-600 transition duration-300">
+                        <i class="fa-solid fa-layer-group text-2xl text-brand-600 group-hover:text-white transition duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Zabudowy G-K</h4>
+                    <p class="text-slate-600">Sufity podwieszane, ścianki działowe, zabudowy nietypowe oraz adaptacje poddaszy.</p>
+                </div>
+
+                <!-- Usługa 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-transparent hover:border-brand-600 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-600 transition duration-300">
+                        <i class="fa-solid fa-ruler-combined text-2xl text-brand-600 group-hover:text-white transition duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Podłogi i Parkiety</h4>
+                    <p class="text-slate-600">Układanie paneli, deski barlineckiej oraz listew przypodłogowych. Renowacja parkietów.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja Realizacje -->
+    <section id="realizacje" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase mb-2">Portfolio</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Nasze ostatnie realizacje</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Projekt 1 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64 project-card" 
+                    data-title="Nowoczesny Salon" 
+                    data-gallery="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80, ./salon/png1.png, ./salon/png2.png">
+
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                        alt="Nowoczesny Salon" 
+                        class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white text-xl font-bold">Nowoczesny Salon</h4>
+                        <p class="text-gray-300 text-sm">Gładzie, malowanie, oświetlenie LED</p>
+                    </div>
+                </div>
+
+                <!-- Projekt 2 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64 project-card"
+                    data-title="Łazienka"
+                    data-gallery="./lazienka/themelazienka.png, ./lazienka/photo1.png"
+                    >
+                    
+                    <img src="./lazienka/themelazienka.png" 
+                    alt="Łazienka" 
+                    class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                         
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white text-xl font-bold">Łazienka w Marmurze</h4>
+                        <p class="text-gray-300 text-sm">Glazura wielkoformatowa, biały montaż</p>
+                    </div>
+                </div>
+
+                <!-- Projekt 3 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kuchnia" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white text-xl font-bold">Aneks Kuchenny</h4>
+                        <p class="text-gray-300 text-sm">Hydraulika, płytki, montaż AGD</p>
+                    </div>
+                </div>
+
+                 <!-- Projekt 4 -->
+                 <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sypialnia" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white text-xl font-bold">Sypialnia Minimalistyczna</h4>
+                        <p class="text-gray-300 text-sm">Zabudowa G-K, panele podłogowe</p>
+                    </div>
+                </div>
+
+                 <!-- Projekt 5 -->
+                 <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Taras" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white text-xl font-bold">Taras Zewnętrzny</h4>
+                        <p class="text-gray-300 text-sm">Płytki mrozoodporne, izolacja</p>
+                    </div>
+                </div>
+
+                 <!-- Projekt 6 -->
+                 <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer h-64">
+                    <img src="https://images.unsplash.com/photo-1484154218962-a1c002085d2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Biuro" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white text-xl font-bold">Przestrzeń Biurowa</h4>
+                        <p class="text-gray-300 text-sm">Wykładziny, ścianki działowe, elektryka</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Galeria-->
+    <div id="gallery-modal" class="fixed inset-0 z-[100] bg-black/95 hidden flex-col items-center justify-center p-4">
+        <button onclick="closeGallery()" class="absolute top-5 right-5 text-white text-4xl hover:text-brand-500 transition">&times;</button>
+        
+        <div class="relative max-w-5xl w-full flex items-center justify-center">
+            <button onclick="prevImage()" class="absolute left-0 text-white text-5xl p-4 hover:text-brand-500 transition">❮</button>
+            
+            <img id="modal-img" src="" class="max-h-[85vh] max-w-full object-contain rounded-lg shadow-2xl">
+            
+            <button onclick="nextImage()" class="absolute right-0 text-white text-5xl p-4 hover:text-brand-500 transition">❯</button>
+        </div>
+    
+        <div class="text-white mt-4 text-center">
+            <h4 id="modal-title" class="text-xl font-bold"></h4>
+            <p id="modal-counter" class="text-gray-400 text-sm mt-1"></p>
+        </div>
+    </div>
+
+    <!-- Sekcja Kontakt -->
+    <section id="kontakt" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Dane Kontaktowe -->
+                <div>
+                    <h2 class="text-brand-500 font-semibold tracking-wide uppercase mb-2">Kontakt</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6">Skontaktuj się z nami</h3>
+                    <p class="text-gray-400 mb-10 text-lg">Masz pytania dotyczące remontu? Chcesz umówić się na darmową wycenę? Zadzwoń lub napisz do nas.</p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-brand-600/20 p-4 rounded-lg">
+                                <i class="fa-solid fa-phone text-brand-500 text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold">Telefon</h4>
+                                <p class="text-gray-400 mt-1">+48 123 456 789</p>
+                                <p class="text-sm text-gray-500">Pn-Pt: 8:00 - 18:00</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-brand-600/20 p-4 rounded-lg">
+                                <i class="fa-solid fa-envelope text-brand-500 text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold">Email</h4>
+                                <p class="text-gray-400 mt-1">biuro@ptysiekbud.pl</p>
+                                <p class="text-sm text-gray-500">Odpowiadamy w ciągu 24h</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-brand-600/20 p-4 rounded-lg">
+                                <i class="fa-solid fa-location-dot text-brand-500 text-2xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold">Adres</h4>
+                                <p class="text-gray-400 mt-1">ul. jakas</p>
+                                <p class="text-gray-400">32-840 Zakliczyn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formularz -->
+                <div class="bg-white rounded-xl p-8 shadow-2xl text-slate-800">
+                    <h3 class="text-2xl font-bold mb-6">Napisz wiadomość</h3>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Imię i Nazwisko</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition" placeholder="Jan Kowalski" required>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-slate-700 mb-1">Telefon</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition" placeholder="+48 ..." required>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition" placeholder="jan@przyklad.pl" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Wiadomość</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition" placeholder="Opisz, co chcesz wyremontować..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-brand-700 transition duration-300 shadow-md hover:shadow-lg">
+                            Wyślij wiadomość
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Kolumna 1 -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-helmet-safety text-brand-600 text-2xl"></i>
+                        <span class="font-bold text-xl text-white">Solid<span class="text-brand-600">Bud</span></span>
+                    </div>
+                    <p class="text-sm">
+                        Profesjonalne usługi wykończeniowe na najwyższym poziomie. Twoja wizja, nasze wykonanie.
+                    </p>
+                </div>
+
+                <!-- Kolumna 2 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Nawigacja</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#onas" class="hover:text-brand-500 transition">O firmie</a></li>
+                        <li><a href="#uslugi" class="hover:text-brand-500 transition">Usługi</a></li>
+                        <li><a href="#realizacje" class="hover:text-brand-500 transition">Realizacje</a></li>
+                        <li><a href="#kontakt" class="hover:text-brand-500 transition">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolumna 3 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Usługi</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>Remonty mieszkań</li>
+                        <li>Wykończenia wnętrz</li>
+                        <li>glazura</li>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Dane firmy</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-building text-brand-600"></i> PtysiekBud Sp. z o.o.</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-600"></i> biuro@ptysiekbud.pl</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-600"></i> +48 500 600 700</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-600"></i> Tarnów, Polska</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm">&copy; 2025 PtysiekBud. Wszelkie prawa zastrzeżone.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                <!-- 
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white transition"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Proste powiadomienie (Modal) -->
+    <div id="notification" class="fixed bottom-5 right-5 bg-white border-l-4 border-brand-500 shadow-2xl rounded-lg p-6 hidden transform transition-all duration-300 translate-y-20 z-50 max-w-sm">
+        <div class="flex items-center">
+            <div class="flex-shrink-0 text-brand-500">
+                <i class="fa-solid fa-circle-check text-2xl"></i>
+            </div>
+            <div class="ml-3">
+                <h3 class="text-sm font-medium text-slate-900">Wiadomość wysłana!</h3>
+                <p class="text-sm text-slate-500 mt-1">Dziękujemy za kontakt. Oddzwonimy wkrótce.</p>
+            </div>
+            <div class="ml-4 flex-shrink-0 flex">
+                <button onclick="closeNotification()" class="bg-white rounded-md inline-flex text-slate-400 hover:text-slate-500 focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menu Mobilne
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Zamykanie menu po kliknięciu w link (Mobile)
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Obsługa formularza
+        function handleSubmit(event) {
+            event.preventDefault(); // Zatrzymuje przeładowanie strony
+            
+            // Symulacja wysyłania...
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = 'Wysyłanie...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                // Pokazanie powiadomienia
+                const notification = document.getElementById('notification');
+                notification.classList.remove('hidden', 'translate-y-20');
+                
+                // Reset formularza
+                event.target.reset();
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+
+                // Ukrycie powiadomienia po 5 sekundach
+                setTimeout(() => {
+                    closeNotification();
+                }, 5000);
+            }, 1500);
+        }
+
+        function closeNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.add('translate-y-20');
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 300);
+        }
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        // Znajdź wszystkie karty projektów i dodaj do nich kliknięcie
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const galleryData = card.getAttribute('data-gallery');
+                const title = card.getAttribute('data-title');
+                
+                if (galleryData) {
+                    currentGallery = galleryData.split(',');
+                    currentIndex = 0;
+                    openGallery(title);
+                }
+            });
+        });
+
+        function openGallery(title) {
+            document.getElementById('modal-title').innerText = title;
+            updateModalImage();
+            document.getElementById('gallery-modal').classList.remove('hidden');
+            document.getElementById('gallery-modal').classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Blokuje przewijanie strony w tle
+        }
+
+        function closeGallery() {
+            document.getElementById('gallery-modal').classList.add('hidden');
+            document.getElementById('gallery-modal').classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateModalImage() {
+            const img = document.getElementById('modal-img');
+            const counter = document.getElementById('modal-counter');
+            
+            img.src = currentGallery[currentIndex].trim();
+            counter.innerText = `Zdjęcie ${currentIndex + 1} z ${currentGallery.length}`;
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateModalImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateModalImage();
+        }
+
+        // Zamykanie klawiszem ESC
+        window.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeGallery();
+            if (e.key === "ArrowRight") nextImage();
+            if (e.key === "ArrowLeft") prevImage();
+        });
+    </script>
+</body>
+</html>
